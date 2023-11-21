@@ -1,0 +1,26 @@
+<%- include("partials/header.ejs") %>
+<h3 class="cnt create-page">Profile</h3>
+<p class="cnt create-page">You can find your data down below.</p>
+<div class="wrapper">
+	<div class="post-form">
+		<div class="list-group">
+			<label for="title">Username:</label>
+			<p><%= user.username %></p>
+		</div>
+		<div class="list-group">
+			<label for="title">Email:</label>
+			<p><%= user.email %></p>
+		</div>
+		<div class="list-group">
+			<label for="title">UserID:</label>
+			<p><%= user.user_id %></p>
+		</div>
+	</div>
+	<div class="flex-group">
+		<a href="/logout" class="button read-more" id="logout-margin"> Logout </a>
+		<a href="/delete-account" class="button read-more" id="logout-margin">
+			Delete My Account
+		</a>
+	</div>
+</div>
+<%- include("partials/footer.ejs") %>

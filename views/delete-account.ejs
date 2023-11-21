@@ -1,0 +1,20 @@
+<%- include("partials/header.ejs") %>
+<h3 class="cnt create-page">Delete My Account</h3>
+<p class="cnt create-page">
+	By clicking the 'Delete My Account' button, you will permanently delete your
+	account including all your blog posts.
+</p>
+
+<div class="wrapper">
+	<form method="POST" action="/delete-account?_method=DELETE">
+		<input
+			type="submit"
+			class="read-more button"
+			value="Delete My Account"
+			id="delete-buttons"
+			onclick="return confirm('Are you sure you want to delete your account?');"
+		/>
+	</form>
+</div>
+
+<%- include("partials/footer.ejs") %>

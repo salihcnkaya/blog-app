@@ -1,0 +1,34 @@
+<%- include("partials/header.ejs") %>
+<div class="post-wrapper">
+	<h3 class="post-title"><%= post.title %></h3>
+	<p class="post-content"><%= post.content %></p>
+	<hr class="bottom-hr" />
+	<div class="post-controls">
+		<div class="post-details">
+			<p class="yazar">Yazar: <%= post.author_username %></p>
+			<p class="tarih">Tarih: <%= post.formatted_date %></p>
+		</div>
+		<% if (user && post.user_id === user.user_id) { %>
+		<div class="post-controls">
+			<div class="post-controls-buttons">
+				<a href="/edit-post/<%= post.slug %>" class="button read-more">
+					Edit
+				</a>
+				<form
+					method="POST"
+					action="/delete-post/<%= post.slug %>?_method=DELETE"
+				>
+					<input
+						type="submit"
+						class="read-more button"
+						value="Delete"
+						id="delete-buttons"
+						onclick="return confirm('Are you sure you want to delete this post?');"
+					/>
+				</form>
+			</div>
+		</div>
+		<% } %>
+	</div>
+</div>
+<%- include("partials/footer.ejs") %>

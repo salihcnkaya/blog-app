@@ -1,0 +1,35 @@
+<%- include("partials/header.ejs") %>
+<div class="blog-posts">
+	<% if (blogPosts.length === 0) { %>
+	<p class="warn">
+		Hic post yazilmamis. Post yazmak icin <a href="/create-post">tiklayin</a>.
+	</p>
+	<% } else { %> <% blogPosts.forEach(post => { %>
+	<div class="card">
+		<div class="card-body">
+			<h4 class="kisalt renk"><%= post.title %></h4>
+			<p class="kisalt"><%= post.content %></p>
+			<a href="/post/<%= post.slug %>" class="read-more" id="read-more">
+				Read More
+			</a>
+			<div class="bottom-section">
+				<div class="user">
+					<div class="user-info">
+						<h5 class="kisalt"><%= post.author_username %></h5>
+						<small><%= post.formatted_date %></small>
+					</div>
+				</div>
+				<div class="spacer"></div>
+				<div class="read-btn">
+					<% if (user && post.user_id === user.user_id) { %>
+					<a href="/edit-post/<%= post.slug %>" class="button read-more">
+						Edit
+					</a>
+					<% } %>
+				</div>
+			</div>
+		</div>
+	</div>
+	<% }); %> <% } %>
+</div>
+<%- include("partials/footer.ejs") %>

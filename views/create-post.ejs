@@ -1,0 +1,28 @@
+<%- include("partials/header.ejs") %>
+<h3 class="cnt create-page">Create Post</h3>
+<p class="cnt create-page">
+	You can create a post by filling out the form below.
+</p>
+<div class="wrapper">
+	<form action="/new-post" method="post" class="post-form">
+		<label for="title">Title</label>
+		<input
+			type="text"
+			id="title"
+			name="title"
+			placeholder="Write your text here"
+			required
+		/>
+		<label for="content">Content</label>
+		<textarea
+			name="content"
+			id="content"
+			cols="30"
+			rows="10"
+			placeholder="Write your text here."
+			required
+		></textarea>
+		<input type="submit" value="Submit" class="button extra" />
+	</form>
+</div>
+<%- include("partials/footer.ejs") %>
